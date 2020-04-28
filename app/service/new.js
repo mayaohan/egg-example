@@ -30,15 +30,36 @@ class NewsService extends Service {
 //     return newsList.map(res => res.data);
 //   }
 
-  list(page = 1) {
-    return new Promise(function(resolve, reject) {
-        setTimeout(function() {
-          resolve([
-            { id: 1, title: 'this is news 1', url: '/news/1',time:new Date()},
-            { id: 2, title: 'this is news 2', url: '/news/2',time:new Date()}
-          ]);
-        }, 300);
-    });
+  async list(page = 1) {
+    try{
+      await this.app.mysql.query(`CREATE TABLE runoob_tbl( 
+        runoob_id INT NOT NULL AUTO_INCREMENT, 
+        runoob_title VARCHAR(100) NOT NULL, 
+        runoob_author VARCHAR(40) NOT NULL, 
+        submission_date DATE, 
+        PRIMARY KEY ( runoob_id ))ENGINE=InnoDB DEFAULT CHARSET=utf8;`)
+      return []
+    }catch(e){
+      this.logger.warn(e)
+      const uuid = this.app.uuint.uuid()
+      this.logger.warn(uuid)
+      await this.app.mysql.insert('runoob_tbl',{
+        // runoob_id:uuid,
+        runoob_title:'中国人',
+        runoob_author:'safsdf',
+        submission_date:new Date()
+      })
+      let list = await this.app.mysql.query(
+        `
+        select runoob_title as title,runoob_author as url,submission_date as time from runoob_tbl
+        `
+      )
+      return list
+      // return [
+      //   { id: 1, title: 'this is news 1', url: '/news/1',time:new Date()},
+      //   { id: 2, title: 'this is news 2', url: '/news/2',time:new Date()}
+      // ]
+    }
   }
 }
 
