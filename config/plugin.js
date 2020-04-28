@@ -14,3 +14,13 @@ exports.validate = {
     enable: true,
     package: 'egg-validate',
 };
+
+exports.mysql = {
+    enable: true,
+    package: 'egg-mysql',
+};
+
+exports.uuint = {
+    enable: true,
+    package: 'egg-uuid-int'
+};
