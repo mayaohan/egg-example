@@ -23,10 +23,14 @@
             var files = res.raw
             
         } #}
-        var newfile = null
+        var newfile = null,copyfile = null
         function showPreview(source) {  
             var file = source.files[0];  
             console.log(file)
+            //文件改名方法1
+            copyfile = new File([file],'sdfssfd.PNG')
+            console.log(copyfile)
+            //文件改名方法2
             if(window.FileReader) {  
                 var fr = new FileReader();  
                 fr.onloadend = function(e) {  
@@ -49,7 +53,7 @@
                 formData.append('name', $('input[type=text]').val());
                 var file = $('input[type=file]')[0].files[0]
                 console.log(file)
-                formData.append('image', newfile);
+                formData.append('image', copyfile);
                 console.log(formData);
                 console.log(file)
                 $.ajax({
