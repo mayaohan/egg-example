@@ -30,20 +30,21 @@ class NewsService extends Service {
 //     return newsList.map(res => res.data);
 //   }
 
-  async list(page = 1) {
+  async list(page = 2) {
     try{
-      await this.app.mysql.query(`CREATE TABLE runoob_tbl( 
-        runoob_id INT NOT NULL AUTO_INCREMENT, 
+      
+      await this.app.mysql.query(`CREATE TABLE user_tbl( 
+        userid INT NOT NULL AUTO_INCREMENT, 
         runoob_title VARCHAR(100) NOT NULL, 
         runoob_author VARCHAR(40) NOT NULL, 
         submission_date DATE, 
-        PRIMARY KEY ( runoob_id ))ENGINE=InnoDB DEFAULT CHARSET=utf8;`)
+        PRIMARY KEY ( userid ))ENGINE=InnoDB DEFAULT CHARSET=utf8;`)
       return []
     }catch(e){
       this.logger.warn(e)
       const uuid = this.app.uuint.uuid()
       this.logger.warn(uuid)
-      await this.app.mysql.insert('runoob_tbl',{
+      await this.app.mysql.insert('user_tbl',{
         // runoob_id:uuid,
         runoob_title:'中国人',
         runoob_author:'safsdf',
@@ -51,9 +52,14 @@ class NewsService extends Service {
       })
       let list = await this.app.mysql.query(
         `
-        select runoob_title as title,runoob_author as url,submission_date as time from runoob_tbl
-        `
+        select runoob_title as title,runoob_author as url,submission_date as time from user_tbl t where userid > ?
+        `,page
       )
+      const jane = await this.app.model.User.create({ name: "Jane",age:11 });
+      jane.name = "Ada";
+      // 数据库中的名称仍然是 "Jane"
+      await jane.save();
+      this.logger.warn(jane)
       return list
       // return [
       //   { id: 1, title: 'this is news 1', url: '/news/1',time:new Date()},

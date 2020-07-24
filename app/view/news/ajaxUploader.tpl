@@ -64,6 +64,10 @@
                     processData: false, // NEEDED, DON'T OMIT THIS
                     success: function(result) {
                         console.log(result);
+                        var im = document.createElement('img')
+                        im.src = result.url
+                        document.body.appendChild(im)
+
                     },
                     error: function(responseStr) {
                         alert("error", responseStr);
