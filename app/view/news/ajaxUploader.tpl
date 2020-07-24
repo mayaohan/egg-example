@@ -6,7 +6,7 @@
   <body>
     <form class="ax" method="POST" action="/upload?_csrf={{ ctx.csrf | safe }}" enctype="multipart/form-data">
         title: <input name="title" />
-        file: <input name="file" type="file" />
+        file: <input name="file" type="file" onChange="showPreview(this)"/>
         <button type="submit">Upload</button>
     </form>
 
@@ -18,14 +18,44 @@
     <script src="/public/jquery.min.js"></script>
     <script>
         {# $('.btn').click(function(){ #}
+        {# function fileChange(res){
+            console.log(res.value)
+            var files = res.raw
+            
+        } #}
+        var newfile = null,copyfile = null
+        function showPreview(source) {  
+            var file = source.files[0];  
+            console.log(file)
+            //文件改名方法1
+            copyfile = new File([file],'sdfssfd.PNG')
+            console.log(copyfile)
+            //文件改名方法2
+            if(window.FileReader) {  
+                var fr = new FileReader();  
+                fr.onloadend = function(e) {  
+                    console.log(e)
+                    var arr = e.target.result.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+                    while(n--){
+                        u8arr[n] = bstr.charCodeAt(n);
+                    }
+                    newfile = new File([u8arr], 'safd.PNG', {type:mime})
+                    console.log(newfile)
+                    return ;
+                };  
+                fr.readAsDataURL(file);  //也是利用将图片作为url读出
+            }  
+        } 
             $('.ax').submit(function(e) {
                 e.preventDefault();
                 var formData = new FormData();
                 formData.append('name', $('input[type=text]').val());
-                // Attach file
-                formData.append('image', $('input[type=file]')[0].files[0]);
+                var file = $('input[type=file]')[0].files[0]
+                console.log(file)
+                formData.append('image', copyfile);
                 console.log(formData);
-
+                console.log(file)
                 $.ajax({
                     url: '/ajaxUploader?_csrf=' + getCsrf(),
                     data: formData,
@@ -34,6 +64,10 @@
                     processData: false, // NEEDED, DON'T OMIT THIS
                     success: function(result) {
                         console.log(result);
+                        var im = document.createElement('img')
+                        im.src = result.url
+                        document.body.appendChild(im)
+
                     },
                     error: function(responseStr) {
                         alert("error", responseStr);
@@ -50,7 +84,7 @@
                 e.preventDefault();
                 var formData = new FormData();
                 formData.append('name', $('input[type=text]').val());
-                
+                console.log($('#file')[0].files)
                 for(var i=0; i<$('#file')[0].files.length;i++){
                    formData.append('file', $('#file')[0].files[i]);
                 }

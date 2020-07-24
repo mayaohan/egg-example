@@ -10,6 +10,11 @@ module.exports = app => {
     router.post('/ajaxUploader_more',controller.uploader.ajaxUpload_more)
     router.get('/validate',controller.validate.index)
     router.post('/validate',controller.validate.create)
+    router.post('/addMenu',controller.news.add)
+    router.get('/model',controller.news.demo)
+    router.post('/getList',controller.news.getDemo)
+    router.post('/delMenu',controller.news.delMenu)
+    router.post('/updateMenu',controller.news.updateMenu)
     // router.post('/jsonpDemo',jsonp({callback:'oramp'}),controller.validate.create)//没有实体函数，只是演示jsonp
     
 };

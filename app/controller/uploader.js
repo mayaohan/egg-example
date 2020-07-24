@@ -46,7 +46,8 @@ class UploaderController extends Controller {
     this.ctx.body = {
         code:0,
         masg:'success!',
-        data:stream
+        data:stream,
+        url:'/public/uploads/'+stream.filename
     };
   }
 

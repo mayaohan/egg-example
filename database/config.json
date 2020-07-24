@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "development",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "collate": "utf8_general_ci"
+    } 
+  },
+  "test": {
+    "username": "root",
+    "password": "123456",
+    "database": "test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "123456",
+    "database": "production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
