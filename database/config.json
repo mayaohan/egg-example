@@ -14,13 +14,19 @@
     "password": "123456",
     "database": "test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "collate": "utf8_general_ci"
+    } 
   },
   "production": {
     "username": "root",
     "password": "123456",
     "database": "production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "collate": "utf8_general_ci"
+    } 
   }
 }

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "egg-bin dev",
     "test": "egg-bin test",
-    "cov": "egg-bin cov"
+    "cov": "egg-bin cov",
+    "model": "egg-sequelize-auto -h 127.0.0.1 -d test -u root -x ghgbtafjhh -p 3306 -e mysql"
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +38,7 @@
     "egg-path-matching": "^1.0.1",
     "egg-schedule": "^3.6.4",
     "egg-security": "^2.8.0",
+    "egg-sequelize": "^5.2.2",
     "egg-session": "^3.1.0",
     "egg-static": "^2.2.0",
     "egg-utils": "^2.4.1",
@@ -61,11 +63,13 @@
     "mm": "^3.2.0",
     "moment": "^2.24.0",
     "multer": "^1.4.2",
+    "mysql2": "^2.1.0",
     "node-homedir": "^1.1.1",
     "on-finished": "^2.3.0",
     "ready-callback": "^2.1.0",
     "rimraf": "^3.0.2",
     "sdk-base": "^3.6.0",
+    "sequelize": "^6.3.3",
     "serialize-json": "^1.0.3",
     "supertest": "^4.0.2",
     "tcp-base": "^3.1.0",

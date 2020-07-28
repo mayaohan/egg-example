@@ -3,14 +3,14 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('sequelizemeta', {
+  const Model = app.model.define('SequelizeMeta', {
     name: {
       type: DataTypes.STRING(255),
       allowNull: false,
       primaryKey: true
     }
   }, {
-    tableName: 'sequelizemeta'
+    tableName: 'SequelizeMeta'
   });
 
   Model.associate = function() {

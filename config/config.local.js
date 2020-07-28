@@ -3,7 +3,7 @@ module.exports = {
         // 数据库类型
         dialect: 'mysql',
         // 数据库名
-        database: 'development',
+        database: 'test',
         // 数据库IP和端口
         host: '127.0.0.1',
         port: '3306',

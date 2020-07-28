@@ -27,7 +27,7 @@ module.exports = app => {
       allowNull: true
     }
   }, {
-    tableName: 'users',
+    tableName: 'users'
   });
 
   Model.associate = function() {

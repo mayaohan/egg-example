@@ -3,31 +3,27 @@
 module.exports = app => {
   const DataTypes = app.Sequelize;
 
-  const Model = app.model.define('menuList', {
-    id: {
+  const Model = app.model.define('runoob_tbl', {
+    runoob_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    name: {
-      type: DataTypes.STRING(30),
-      allowNull: true
+    runoob_title: {
+      type: DataTypes.STRING(100),
+      allowNull: false
     },
-    age: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
+    runoob_author: {
+      type: DataTypes.STRING(40),
+      allowNull: false
     },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    updated_at: {
+    submission_date: {
       type: DataTypes.DATE,
       allowNull: true
     }
   }, {
-    tableName: 'menuList'
+    tableName: 'runoob_tbl'
   });
 
   Model.associate = function() {
