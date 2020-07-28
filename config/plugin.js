@@ -28,3 +28,8 @@ exports.uuint = {
     enable: true,
     package: 'egg-uuid-int'
 };
+
+exports.redis = {
+    enable: true,
+    package: 'egg-redis'
+}
