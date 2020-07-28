@@ -48,8 +48,16 @@ class NewsController extends Controller {
   
   async getDemo(){
     const body = this.ctx.request.body
-    const res = await this.ctx.service.demo.getMenuList(body)
-    this.ctx.body = res
+    console.time() // 开始计时
+    let goodsList = await this.service.redis.get('goodsList');
+    if (!goodsList) {
+      console.log('没有redis缓存')
+      goodsList  = await this.ctx.service.demo.getMenuList(body)
+      this.service.redis.set('goodsList', goodsList);
+      this.ctx.body = goodsList
+    }
+    this.ctx.body = goodsList;
+    console.timeEnd() // 打印时长
     return;
   }
 
