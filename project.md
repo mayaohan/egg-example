@@ -45,3 +45,5 @@ ctrl+p+q 退出容器但不关闭,
 docker exec -it 容器名称/容器ID /bin/bash：进入容器
 
 docker的阿里加速器 https://gn2chbms.mirror.aliyuncs.com
+
+docker实时debugger https://zhuanlan.zhihu.com/p/33365859
