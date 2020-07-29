@@ -7,7 +7,10 @@
     "dev": "egg-bin dev",
     "test": "egg-bin test",
     "cov": "egg-bin cov",
-    "model": "egg-sequelize-auto -h 127.0.0.1 -d test -u root -x ghgbtafjhh -p 3306 -e mysql"
+    "model": "egg-sequelize-auto -h 127.0.0.1 -d test -u root -x ghgbtafjhh -p 3306 -e mysql",
+    "start": "egg-scripts start --title=egg-server-docker-boilerplate",
+    "startd": "egg-scripts start --daemon --title=egg-server-docker-boilerplate",
+    "stop": "egg-scripts stop --title=egg-server-docker-boilerplate"
   },
   "author": "",
   "license": "ISC",
@@ -36,6 +39,7 @@
     "egg-mysql": "^3.0.0",
     "egg-onerror": "^2.1.0",
     "egg-path-matching": "^1.0.1",
+    "egg-redis": "^2.4.0",
     "egg-schedule": "^3.6.4",
     "egg-security": "^2.8.0",
     "egg-sequelize": "^5.2.2",
