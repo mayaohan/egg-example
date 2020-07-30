@@ -5,8 +5,9 @@ module.exports = {
         // 数据库名
         database: 'test',
         // 数据库IP和端口
-        host: '127.0.0.1',
-        port: '3306',
+        // host: '127.0.0.1',
+        host: 'md',
+        port: '3307',
         // 数据库连接的用户和密码
         username: 'root',
         password: '123456',

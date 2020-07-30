@@ -10,10 +10,15 @@
     "model": "egg-sequelize-auto -h 127.0.0.1 -d test -u root -x ghgbtafjhh -p 3306 -e mysql",
     "start": "egg-scripts start --title=egg-server-docker-boilerplate",
     "startd": "egg-scripts start --daemon --title=egg-server-docker-boilerplate",
-    "stop": "egg-scripts stop --title=egg-server-docker-boilerplate"
+    "stop": "egg-scripts stop --title=egg-server-docker-boilerplate",
+    "docker-build":"docker-compose up -d"
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mayaohan/egg-example.git"
+  },
   "dependencies": {
     "@eggjs/router": "^2.0.0",
     "@koa/multer": "^2.0.2",
@@ -78,5 +83,9 @@
     "supertest": "^4.0.2",
     "tcp-base": "^3.1.0",
     "test-exclude": "^6.0.0"
+  },
+  "devDependencies": {
+    "egg-cluster-script": "^0.1.20",
+    "egg-scripts": "^2.13.0"
   }
 }
