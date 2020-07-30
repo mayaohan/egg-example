@@ -40,6 +40,7 @@ class NewsController extends Controller {
     await ctx.render('news/model.tpl');
   }
   async add(){
+    await this.service.redis.destroy('goodsList');
     const body = this.ctx.request.body
     const res = await this.ctx.service.demo.addMenu(body)
     this.ctx.body = res
@@ -62,12 +63,14 @@ class NewsController extends Controller {
   }
 
   async delMenu(){
+    await this.service.redis.destroy('goodsList');
     const body = this.ctx.request.body
     const res = await this.ctx.service.demo.deletes(body.id)
     this.ctx.body = res
     return;
   }
   async updateMenu(){
+    await this.service.redis.destroy('goodsList');
     const body = this.ctx.request.body
     this.logger.warn(body)
     const res = await this.ctx.service.demo.updateMenu(body)
