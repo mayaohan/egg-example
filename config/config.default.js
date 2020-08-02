@@ -15,7 +15,7 @@ module.exports = appInfo =>{
     config.cluster = {
         listen: {
           path: '',
-          port: 8000,
+          port: 8080,
           hostname: '0.0.0.0',
         }
     };
@@ -24,7 +24,7 @@ module.exports = appInfo =>{
     config.redis = {
         client: {
             port: 6379,
-            host: 'rd',
+            host: '0.0.0.0',
             password: '', 
             db: 0
         }, 
@@ -64,15 +64,7 @@ module.exports = appInfo =>{
         seed: 156015570 // a time
     };
 
-    config.mysql = {
-        client: {
-          host: '127.0.0.1',
-          port: '3307',
-          user: 'root',
-          password: '123456',
-          database: 'test',
-        },
-    };
+    
 
 
     config.robot = {

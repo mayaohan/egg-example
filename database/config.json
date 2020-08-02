@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "123456",
-    "database": "development",
+    "database": "test",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "dialectOptions": {
@@ -22,7 +22,7 @@
   "production": {
     "username": "root",
     "password": "123456",
-    "database": "production",
+    "database": "test",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "dialectOptions": {

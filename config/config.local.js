@@ -6,7 +6,7 @@ module.exports = {
         database: 'test',
         // 数据库IP和端口
         // host: '127.0.0.1',
-        host: 'md',
+        host: '0.0.0.0',
         port: '3307',
         // 数据库连接的用户和密码
         username: 'root',
@@ -29,4 +29,13 @@ module.exports = {
         },
         
     },
+    mysql: {
+        client: {
+          host: '0.0.0.0',
+          port: '3307',
+          user: 'root',
+          password: '123456',
+          database: 'test',
+        },
+    }
 }

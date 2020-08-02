@@ -42,8 +42,8 @@ class NewsService extends Service {
       return []
     }catch(e){
       this.logger.warn(e)
-      const uuid = this.app.uuint.uuid()
-      this.logger.warn(uuid)
+      // const uuid = this.app.uuint.uuid()
+      // this.logger.warn(uuid)
       await this.app.mysql.insert('user_tbl',{
         // runoob_id:uuid,
         runoob_title:'中国人',

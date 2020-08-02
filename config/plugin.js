@@ -24,10 +24,10 @@ exports.mysql = {
     package: 'egg-mysql',
 };
 
-exports.uuint = {
-    enable: true,
-    package: 'egg-uuid-int'
-};
+// exports.uuint = {
+//     enable: true,
+//     package: 'egg-uuid-int'
+// };
 
 exports.redis = {
     enable: true,

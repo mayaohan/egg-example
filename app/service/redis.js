@@ -27,6 +27,7 @@ class RedisService extends Service {
     }
     // 删除
     async destroy(key) {
+        let { redis } = this.app;
         let res = await this.get(key)
         if(res){
             let del = await redis.del(key)
