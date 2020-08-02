@@ -54,7 +54,7 @@ services:
         restart: always
         container_name: mysql
         volumes:
-            - /Applications/development/egg-example/data:/var/lib/mysql
+            - ./data:/var/lib/mysql
         environment:
             - TZ=Asia/Shanghai
             - MYSQL_ROOT_PASSWORD=123456
