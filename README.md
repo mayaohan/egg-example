@@ -47,3 +47,11 @@ docker exec -it 容器名称/容器ID /bin/bash：进入容器
 docker的阿里加速器 https://gn2chbms.mirror.aliyuncs.com
 
 docker实时debugger https://zhuanlan.zhihu.com/p/33365859
+
+
+portainer安装
+docker run -d -p 9000:9000
+--restart=always
+-v /var/run/docker.sock:/var/run/docker.sock
+--name prtainer-test
+docker.io/portainer/portainer
