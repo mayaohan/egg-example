@@ -9,22 +9,34 @@
  
 # 项目部署
 项目基于Docker部署，请确保你的电脑上已经安装了docker切能够正常运行
+
 部署命令：npm run docker-build ,部署成功后，就可以在8080端口上查看项目了，如果有特殊需求，请自主修改docker-compose.yml配置文件以达到目的
 
 
 # 常用命令走一波
 
  初始化表 init-users为参数，初始化后编辑./database/migrations/时间戳-init-users.js,然后可以通过以下命令把它创建到DB里
+ 
  npx sequelize migration:generate --name=init-users
+ 
  升级数据库 已经有成型的./database/migrations/时间戳-xxx.js，可以通过此命令初始化数据库
+ 
  npx sequelize db:migrate
+ 
  如果有问题需要回滚，可以通过 `db:migrate:undo` 回退一个变更
+ 
  npx sequelize db:migrate:undo
+ 
  可以通过 `db:migrate:undo:all` 回退到初始状态
+ 
  npx sequelize db:migrate:undo:all
+ 
  数据库映射到model egg-sequelize-auto自带功能，把数据库表映射到./app/model
+ 
  npm run dbload
+ 
  初始化配置文件 工程初始化建设，详见egg-sequelize文档
+ 
  npx sequelize init
 
 # Docker基础命令
