@@ -1,3 +1,8 @@
+# 常规
+ npm install
+ 
+ npm run dev
+ 
 # 项目包含
  egg初始简单（不含自定义框架）工程
  
