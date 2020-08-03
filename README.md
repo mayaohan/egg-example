@@ -1,4 +1,6 @@
 # 常规
+ 参考config/config.local.js配置数据库，然后看一下·常用命令，初始化数据库
+
  npm install
  
  npm run dev
